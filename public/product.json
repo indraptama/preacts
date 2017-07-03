@@ -1,0 +1,53 @@
+{
+  "name": "OnePlus 5",
+  "brand": "oneplus",
+  "relasedate":"january 350",
+  "price": 8500000,
+  "image": [
+    "img/oneplus5-front.jpg",
+    "img/oneplus5-back.jpg",
+    "img/oneplus5-side.jpg",
+    "img/oneplus5-acc.jpg"
+  ],
+  "description": "Like previous OnePlus smartphones, the OnePlus 5 aims to deliver a flagship smartphone experience at a competitive price. It combines tons of memory and the best Snapdragon chip currently available with Google's latest Android version further optimized by OnePlus itself. But the biggest highlight of the OnePlus 5 is its dual camera, allowing you to zoom in without dramatic loss in quality. It also comes with an iPhone-like portrait mode, with background blur for subject emphasis. But with a price between $480 and $540, the OnePlus 5 is also the company's most expensive phone so far.",
+  "specification": {
+    "os": "Android 7.0",
+    "ram": "6 GB",
+    "weight": "156g",
+    "dimensions": "15.3 x 0.7 x 7.5",
+    "model": "5",
+    "wireless" : "Bluetooth;WiFi Hotspot",
+    "connectivity": "4G, GSM;(1900/1800/850/900 MHz);HSPA+;3G;(2100/1900/850/900 MHz);(2100/1800/2600/900/800 MHz);GPRS;EDGE;WiFi 802.11 b/g/n; WCDMA: Bands 1/2/5/8; FDD-LTE: Bands 1/3/5/7/8/20; TDD-LTE: Bands 38/40",
+    "features": "Dual SIM;GPS;Music Player;Video Player;;Fingerprint sensor;Hall sensor;Accelerometor;Gyroscope;Proximity sensor;Ambient light sensor;Electronic compass;E-mail",
+    "camera": "16MP",
+    "color": "GunMetal",
+    "battery": 3400,
+    "insidebox" : "Handset, Dash Type-C Cable, Dash Power Adapter, SIM Tray Ejector, Screen Protector (pre-applied), Safety Information and Quick Start Guide"
+  },
+  "reviews": {
+    "0": {
+      "name":"minato namikaze",
+      "avatar":"http://avatar.com",
+      "postdate": "30 maret 2017",
+      "rating": 4,
+      "accuracy": 4,
+      "comment": "Like previous OnePlus smartphones, the OnePlus 5 aims to deliver a flagship smartphone experience at a competitive price. It combines tons of memory and the best Snapdragon chip currently available with Google's latest Android version further optimized by OnePlus itself. But the biggest highlight of the OnePlus 5 is its dual camera, allowing you to zoom in without dramatic loss in quality. It also comes with an iPhone-like portrait mode, with background blur for subject emphasis. But with a price between $480 and $540, the OnePlus 5 is also the company's most expensive phone so far."
+    },
+    "1": {
+      "name":"john smith",
+      "avatar":"http://avatar.com",
+      "postdate": "30 maret 2017",
+      "rating": 4,
+      "accuracy": 3,
+      "comment": "The Good The OnePlus 5 is affordable and super fast, with an 18-hour battery. Its camera takes great portraits and low-light shots. The Bad It ..."
+    },
+    "2": {
+      "name":"Ushina",
+      "avatar":"http://avatar.com",
+      "postdate": "30 maret 2017",
+      "rating": 4,
+      "accuracy": 3,
+      "comment": "The Good The OnePlus 5 is affordable and super fast, with an 18-hour battery. Its camera takes great portraits and low-light shots. The Bad It ..."
+    }
+  }
+}

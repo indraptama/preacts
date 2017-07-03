@@ -1,0 +1,29 @@
+{
+  "name": "preacts",
+  "version": "1.0.0",
+  "description": "Describe preacts here",
+  "private": true,
+  "scripts": {
+    "build": "nwb build-preact-app",
+    "clean": "nwb clean-app",
+    "start": "nwb serve-preact-app",
+    "test": "nwb test-preact",
+    "test:coverage": "nwb test-preact --coverage",
+    "test:watch": "nwb test-preact --server"
+  },
+  "dependencies": {
+    "axios": "^0.16.2",
+    "lodash": "^4.17.4",
+    "preact": "^8.1.0",
+    "preact-compat": "^3.16.0",
+    "preact-router": "^2.5.2",
+    "unfetch": "^3.0.0",
+    "wallop": "^2.4.1"
+  },
+  "devDependencies": {
+    "nwb": "0.18.x"
+  },
+  "author": "",
+  "license": "MIT",
+  "repository": ""
+}
