@@ -4,51 +4,61 @@ import fetch from 'unfetch'
 import _ from 'lodash'
 
 import ImageCarousel from './Components/ImageCarousel'
-import TabComponent from './Components/Tabs'
+import Tabs from './Components/Tabs'
 
 const DATA = "http://localhost:3000/product.json";
+const DATA2 = "http://localhost:3000/tabs.json";
 
-const tabs = [{
-  name: 'Tab 1',
-  content: 'Content for 1'
-}, {
-  name: 'Tab 2',
-  content: 'Content for 2'
-
-}, {
-  name: 'Tab 3',
-  content: 'Content for 3'
-}];
-
-const getData = (dataSrc) => {
-  var arrayData = null;
-  fetch(dataSrc)
-    .then(resp => resp.json())
-    .then(respData => {
-      var tabDatas = _.clone(respData);
-      var tabArray = _.map(tabDatas, function(value,index) {
-        return {
-          name: tabDatas.index,
-          content: tabDatas.value,
-        }
-      })
-      arrayData = new Array(tabArray);
-    })
-    .catch(err => console.error(err));
-
-  var result = arrayData;
+const objToArray = (Obj) => {
+  let result = [];
+  Object.keys(Obj).forEach((value, idx) => {
+    var mergeKeyandContent = {
+      key: idx,
+      name: value,
+      content: Obj[value]
+    };
+    result.push(mergeKeyandContent)
+  });
   return result;
-}
+};
+
 
 export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tabcontent: [],
+    }
+  }
+
+  componentDidMount() {
+    fetch(DATA)
+      .then(resp => resp.json())
+      .then(respData => {
+        var dataArray = objToArray(respData);
 
 
+        // var dataArray = _.map(respData, function(value, idx) {
+        //   return {
+        //     name: idx,
+        //     content: value
+        //   };
+        // });
+
+        this.setState({
+          tabcontent: objToArray(respData),
+        })
+      })
+      .catch(err => console.error(err))
+  }
 
   render() {
-    const test = getData(DATA);
-    return <div className="App">
-      <TabComponent tabs={tabs} firstSelect={0} />
-      {console.log(test,tabs)}
-    </div>
+    return (
+      <div className="App">
+        <Tabs tabs={this.state.tabcontent} firstSelect={0} />
+      </div>
+    )
   }
 }
+
+// <Tabs tabs={dataTab()} firstSelect={0} />

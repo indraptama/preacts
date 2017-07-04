@@ -3,14 +3,14 @@ import {h, Component} from 'preact'
 // import fetch from 'unfetch'
 
 
-const TabComponent = (props) => {
+const Tabs = (props) => {
   return (
-    <Tabs selected={props.firstSelect || 0}>
+    <TabsComponent selected={props.firstSelect || 0}>
 
     {props.tabs.map(tab =>
       <Pane label={tab.name}>{tab.content}</Pane>)
     }
-    </Tabs>
+    </TabsComponent>
   );
 }
 
@@ -18,7 +18,7 @@ const Pane = (props) => {
   return <div>{props.children}</div>
 }
 
-export class Tabs extends Component {
+export class TabsComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -67,4 +67,4 @@ export class Tabs extends Component {
   }
 }
 
-export default TabComponent;
+export default Tabs;
