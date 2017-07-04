@@ -22,6 +22,15 @@ const objToArray = (Obj) => {
   return result;
 };
 
+const searchkey = (array, key) => {
+  const searchArray = [];
+
+  for (let vars of array) {
+    console.log(vars);
+  }
+}
+
+
 
 export default class App extends Component {
   constructor(props) {
@@ -31,23 +40,34 @@ export default class App extends Component {
     }
   }
 
+  // componentDidMount() {
+  //   fetch(DATA)
+  //     .then(resp => resp.json())
+  //     .then(respData => {
+  //       this.setState({
+  //         tabcontent: objToArray(respData),
+  //       });
+  //       console.log(this.state.tabcontent);
+  //     })
+  //     .catch(err => console.error(err))
+  // }
+
   componentDidMount() {
     fetch(DATA)
       .then(resp => resp.json())
       .then(respData => {
-        var dataArray = objToArray(respData);
+        var dataResult = [];
+        var dataOri = objToArray(respData);
 
-
-        // var dataArray = _.map(respData, function(value, idx) {
-        //   return {
-        //     name: idx,
-        //     content: value
-        //   };
-        // });
-
+        for (var dataFilter of dataOri) {
+          var k = dataFilter.name;
+          if (k === 'price' || k === 'description' || k === 'brand') {
+            dataResult.push(dataFilter);
+          }
+        }
         this.setState({
-          tabcontent: objToArray(respData),
-        })
+          tabcontent: dataResult,
+        });
       })
       .catch(err => console.error(err))
   }
@@ -61,4 +81,5 @@ export default class App extends Component {
   }
 }
 
+// <Tabs tabs={this.state.tabcontent} firstSelect={0} />
 // <Tabs tabs={dataTab()} firstSelect={0} />
