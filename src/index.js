@@ -1,5 +1,6 @@
 import './index.css'
 
+
 import {h, render} from 'preact'
 
 if (process.env.NODE_ENV === 'development') {

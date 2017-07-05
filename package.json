@@ -21,6 +21,7 @@
     "wallop": "^2.4.1"
   },
   "devDependencies": {
+    "faker": "^4.1.0",
     "nwb": "0.18.x"
   },
   "author": "",

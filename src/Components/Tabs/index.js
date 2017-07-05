@@ -1,7 +1,13 @@
-import {h, Component} from 'preact'
-// import _ from 'lodash'
-// import fetch from 'unfetch'
+/**
+ * for object inside array
+ * with data structure {
+ * name: lalala
+ * content : kakakaka
+ * }
+ */
 
+
+import {h, Component} from 'preact'
 
 const Tabs = (props) => {
   return (

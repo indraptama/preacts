@@ -3,31 +3,21 @@ import {h, Component} from 'preact'
 import fetch from 'unfetch'
 import _ from 'lodash'
 
-import ImageCarousel from './Components/ImageCarousel'
-import Tabs from './Components/Tabs'
 
-const DATA = "http://localhost:3000/product.json";
-const DATA2 = "http://localhost:3000/tabs.json";
+import ProductThumb from './Components/ProductThumb'
 
-const objToArray = (Obj) => {
-  let result = [];
-  Object.keys(Obj).forEach((value, idx) => {
-    var mergeKeyandContent = {
-      key: idx,
-      name: value,
-      content: Obj[value]
-    };
-    result.push(mergeKeyandContent)
-  });
-  return result;
-};
-
-const searchkey = (array, key) => {
-  const searchArray = [];
-
-  for (let vars of array) {
-    console.log(vars);
-  }
+const ProductThumbData = {
+  "code": "2456-xx",
+  "brand": "OnePlus",
+  "name": "OnePlus 5",
+  "price": 8500000,
+  "priceCut": 20,
+  "rating": 4,
+  "reviewers": 5,
+  "new": true,
+  "promo": true,
+  "image": "img/oneplus5-front.jpg",
+  "href": "img/oneplus5-front.jpg"
 }
 
 
@@ -40,42 +30,24 @@ export default class App extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   fetch(DATA)
-  //     .then(resp => resp.json())
-  //     .then(respData => {
-  //       this.setState({
-  //         tabcontent: objToArray(respData),
-  //       });
-  //       console.log(this.state.tabcontent);
-  //     })
-  //     .catch(err => console.error(err))
-  // }
-
-  componentDidMount() {
-    fetch(DATA)
-      .then(resp => resp.json())
-      .then(respData => {
-        var dataResult = [];
-        var dataOri = objToArray(respData);
-
-        for (var dataFilter of dataOri) {
-          var k = dataFilter.name;
-          if (k === 'price' || k === 'description' || k === 'brand') {
-            dataResult.push(dataFilter);
-          }
-        }
-        this.setState({
-          tabcontent: dataResult,
-        });
-      })
-      .catch(err => console.error(err))
-  }
 
   render() {
     return (
       <div className="App">
-        <Tabs tabs={this.state.tabcontent} firstSelect={0} />
+         <ProductThumb
+             display={"card"}
+             productCode={ProductThumbData.code}
+             name={ProductThumbData.name}
+             brand={ProductThumbData.brand}
+             price ={ProductThumbData.price}
+             priceCut = {ProductThumbData.priceCut}
+             rating={ProductThumbData.rating}
+             reviewers={ProductThumbData.reviewers}
+             new={ProductThumbData.new}
+             image={ProductThumbData.image}
+             promo={ProductThumbData.promo}
+            href={ProductThumbData.href}
+           />
       </div>
     )
   }
