@@ -17,6 +17,17 @@ import './index.css'
 import {h, Component} from 'preact'
 
 
+const StarRating = (rating) => {
+  const star = '<i className="icon icon-star"/>';
+  if ( rating <= 5 ) {
+
+
+    return star
+
+  }
+  return "rating error"
+}
+
 export default class ProductThumb extends Component {
   constructor(props) {
     super(props);
@@ -29,23 +40,28 @@ export default class ProductThumb extends Component {
 
   render() {
     return (
-      <div className={'ProductThumb relative pa2 br2 ba b--black-10'+' '+ this.state.display}>
-        <a className="ProductThumb-bgLink absolute db bg-transparent" href={this.props.href}></a>
-        <a className="ProductThumb-img relative mb3" href={this.props.href}>
+      <a className={'ProductThumb relative pa2 br2 ba b--black-10'}  href={this.props.href}>
+        <div className="ProductThumb-img relative mb2">
           <img src={this.props.image} alt=""/>
-        </a>
+        </div>
 
         <div className="ProductThumb-detail relative mb2">
-          <h5 className="ProductThumb-brand f7">{this.props.brand}</h5>
-          <span className="ProductThumb-name db f5 b">{this.props.name}</span>
-          <span className="ProductThumb-price db">{this.props.price}</span>
-        </div>
+          <h5 className="lh-solid f7 mb2">
+            <span className="ProductThumb-brand">{this.props.brand} </span>
+            <span className="ProductThumb-name">{this.props.name}</span>
+          </h5>
+          <div className="ProductThumb-price f5 lh-solid mb3">
+            <span className="ProductThumb-priceOri dib f7 gray strike mr2">Rp. {(this.props.price).toLocaleString('id')}</span>
+            <span className="ProductThumb-priceCut dib f7 b">{this.props.priceCut}%</span>
+            <span className="ProductThumb-priceAfterCut db green">Rp. {(this.props.price).toLocaleString('id')}</span>
+          </div>
+          <div className="ProductThumb-review flex f7">
+            <div className="ProductThumb-rating w-50">{StarRating(this.props.rating)}</div>
+            <div className="ProductThumb-reviewer w-50">{this.props.reviewers}</div>
+          </div>
 
-        <div className="ProductThumb-action relative flex">
-          <button className="ProductThumb-toWishlistButton  w-30 mr2 truncate br2">add to Wishlist</button>
-          <button className="ProductThumb-toCartButton w-70 truncate br2">Beli</button>
         </div>
-      </div>
+      </a>
 
     );
   }
